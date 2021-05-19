@@ -8,7 +8,9 @@ const Form = function () {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // POST request to create new quote in api
+          fetch(`http://localhost:3000/create-quote`, {
+            method: 'POST',
+          });
         }}
         className="create-quote__form"
       >
