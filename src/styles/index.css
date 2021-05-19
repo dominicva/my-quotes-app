@@ -28,11 +28,16 @@ label {
 textarea,
 input {
   margin-top: 0.5rem;
+  padding: 0.25rem;
 }
 
 textarea {
   font-size: 1rem;
   max-width: 100%;
+}
+
+input {
+  height: 2.5rem;
 }
 
 button {
@@ -68,6 +73,11 @@ button:hover {
 .create-quote__form {
   display: flex;
   flex-direction: column;
+}
+
+#category {
+  height: 2.5rem;
+  margin-top: 0.5rem;
 }
 
 .quote {

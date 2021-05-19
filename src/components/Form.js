@@ -1,10 +1,13 @@
 import { useState } from 'react';
 
+const CATEGORIES = ['philosophy', 'science', 'contemplation'];
+
 const Form = () => {
   const [quote, setQuote] = useState(
     'To be, or not to be, that is the question.'
   );
   const [author, setAuthor] = useState('Hamlet');
+  const [category, setCategory] = useState('');
 
   return (
     <div className="create-quote">
@@ -32,6 +35,22 @@ const Form = () => {
             value={author}
             placeholder="Author"
           />
+        </label>
+        <label htmlFor="category">
+          Category
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            onBlur={(e) => setCategory(e.target.value)}
+            id="category"
+            value={category}
+          >
+            <option />
+            {CATEGORIES.map((category) => (
+              <option value={category} key={category}>
+                {category}
+              </option>
+            ))}
+          </select>
         </label>
         <button>Submit</button>
       </form>
