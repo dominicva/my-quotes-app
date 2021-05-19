@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const CATEGORIES = ['philosophy', 'science', 'contemplation'];
+import InputControl from './InputControl';
 
 const Form = () => {
   const [quote, setQuote] = useState(
@@ -11,47 +10,25 @@ const Form = () => {
 
   return (
     <div className="create-quote">
-      <form className="create-quote__form">
-        <label htmlFor="quote__text-area">
-          Quote
-          <textarea
-            onChange={(e) => setQuote(e.target.value)}
-            onBlur={(e) => setQuote(e.target.value)}
-            rows="4"
-            id="quote__text-area"
-            type="text"
-            value={quote}
-            placeholder="Quote text"
-          />
-        </label>
-        <label htmlFor="quote__author-input">
-          Author
-          <input
-            onChange={(e) => setAuthor(e.target.value)}
-            onBlur={(e) => setAuthor(e.target.value)}
-            rows="4"
-            id="quote__author-input"
-            type="text"
-            value={author}
-            placeholder="Author"
-          />
-        </label>
-        <label htmlFor="category">
-          Category
-          <select
-            onChange={(e) => setCategory(e.target.value)}
-            onBlur={(e) => setCategory(e.target.value)}
-            id="category"
-            value={category}
-          >
-            <option />
-            {CATEGORIES.map((category) => (
-              <option value={category} key={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </label>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          // POST request to create new quote in api
+        }}
+        className="create-quote__form"
+      >
+        <InputControl
+          id="quote__text-area"
+          labelText="Quote"
+          inputType="textarea"
+          placeholder="Quote text"
+        />
+        <InputControl
+          id="quote__author-input"
+          labelText="Author"
+          placeholder="Author"
+        />
+        <InputControl id="category" labelText="Category" inputType="dropdown" />
         <button>Submit</button>
       </form>
     </div>
