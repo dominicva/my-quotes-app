@@ -4,13 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"src/**/*.{js,jsx}\""
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "parcel": "*",
     "prettier": "^2.3.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
