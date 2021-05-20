@@ -4,7 +4,11 @@ const Search = () => {
   const { value, bind, reset } = useInput('');
 
   const handleSearch = (e) => {
-    console.log(value);
+    const url = `http://localhost:3000/search/${value}`;
+
+    fetch(url);
+
+    reset();
   };
 
   return (
