@@ -17,6 +17,7 @@ const createQuote = async function (request, response) {
   const body = await processRequestBody(request);
 
   fs.appendFileSync(path.join(__dirname, 'quotes.json'), body);
+
   response.statusCode = 200;
   response.end();
 };

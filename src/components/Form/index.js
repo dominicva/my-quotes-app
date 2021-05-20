@@ -20,7 +20,7 @@ const Form = function () {
     fetch(`http://localhost:3000/create-quote`, {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify({ quote, author, category }),
+      body: JSON.stringify({ quote, author, category }, null, 2),
       // headers: { 'Content-Type': 'application/json' },
     });
     resetQuote();
