@@ -57,7 +57,7 @@ const Form = function () {
             ))}
           </select>
         </label>
-        <button>Submit</button>
+        <button className="create-quote__btn">Submit</button>
       </form>
     </div>
   );

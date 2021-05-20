@@ -15,6 +15,7 @@ body {
   background-color: #171717;
   color: white;
   font-family: monospace;
+  margin: 0;
 }
 
 label {
@@ -42,19 +43,14 @@ input {
 
 button {
   cursor: pointer;
-  background-color: transparent;
-  border: 1px solid var(--off-black);
-  margin-top: 1rem;
   width: 9rem;
   height: 3rem;
   transition: border-radius 0.25s ease-out, color 0.25s ease-out,
     background-color 0.25s ease-out;
 }
 
-button:hover {
-  background-color: var(--off-black);
-  color: white;
-  border-radius: 2rem;
+#root {
+  padding: 2rem 1rem;
 }
 
 .app {
@@ -78,6 +74,35 @@ button:hover {
 #category {
   height: 2.5rem;
   margin-top: 0.5rem;
+}
+
+.create-quote__btn {
+  background-color: transparent;
+  border: 1px solid var(--off-black);
+  margin-top: 1rem;
+}
+
+.create-quote__btn:hover {
+  background-color: var(--off-black);
+  color: white;
+  border-radius: 2rem;
+}
+
+.search-quotes__container {
+  max-width: 480px;
+}
+
+.search-quotes__btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  margin-top: 1rem;
+}
+
+.search-quotes__btn:hover {
+  background-color: white;
+  color: var(--off-black);
+  border-radius: 2rem;
 }
 
 .quote {
