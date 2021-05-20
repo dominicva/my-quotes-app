@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from './components/Form/index';
 
@@ -7,7 +7,6 @@ const App = () => {
     <div className="app">
       <h1>Quotes App</h1>
       <Form quote="To be or not to be, that is the question." author="Hamlet" />
-      {/* <Quote text="Invest in yourself" author="Scott Moss" /> */}
     </div>
   );
 };

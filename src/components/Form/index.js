@@ -1,7 +1,3 @@
-// import { useState } from 'react';
-// import QuoteInput from './QuoteInput';
-// import AuthorInput from './AuthorInput';
-// import SelectCategory from './SelectCategory';
 import useInput from '../../hooks/useInput';
 
 const CATEGORIES = ['philosophy', 'science', 'contemplation'];
@@ -21,7 +17,7 @@ const Form = function () {
       method: 'POST',
       mode: 'no-cors',
       body: JSON.stringify({ quote, author, category }, null, 2),
-      // headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
     resetQuote();
     resetAuthor();
@@ -61,9 +57,6 @@ const Form = function () {
             ))}
           </select>
         </label>
-        {/* <QuoteInput />
-        <AuthorInput />
-        <SelectCategory /> */}
         <button>Submit</button>
       </form>
     </div>
