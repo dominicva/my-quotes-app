@@ -4,6 +4,10 @@ const http = require('http');
 const PORT = 3000;
 
 const router = function (request, response) {
+  if (request.method === 'POST' && request.url === '/create-quote') {
+    console.log(request.headers);
+  }
+  // console.log(request.headers);
   console.log(request.url);
 };
 
