@@ -16,7 +16,7 @@ const router = function (request, response) {
 const createQuote = async function (request, response) {
   const body = await processRequestBody(request);
 
-  // fs.writeFileSync(path.join(__dirname, 'src', 'server', 'quotes.json'));
+  fs.appendFileSync(path.join(__dirname, 'quotes.json'), body);
   response.statusCode = 200;
   response.end();
 };
