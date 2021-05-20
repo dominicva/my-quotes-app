@@ -12,6 +12,13 @@ const router = function (request, response) {
 };
 
 const createQuote = function (request, response) {
+  processRequestBody(request, response);
+
+  response.statusCode = 200;
+  response.end();
+};
+
+const processRequestBody = function (request, response) {
   let body = [];
   request
     .on('error', (err) => console.error(err))
@@ -22,9 +29,6 @@ const createQuote = function (request, response) {
 
       response.on('error', (err) => console.error(err));
     });
-
-  response.statusCode = 200;
-  response.end();
 };
 
 const server = http.createServer(router);
