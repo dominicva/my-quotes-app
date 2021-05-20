@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import Form from './components/Form/index';
 import Search from './components/Search/index';
@@ -13,4 +13,9 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('root')
+);
