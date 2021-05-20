@@ -1,6 +1,20 @@
 const path = require('path');
 const fs = require('fs');
 
+const queryQuotes = async (request, response) => {
+  const { url } = request;
+  const query = url.slice(8); // remove '/search/'
+  const regex = new RegExp(query, 'i');
+
+  const quotes = await readQuotes();
+
+  const matches = quotes.filter((quote) =>
+    regex.test(Object.values(quote).join(','))
+  );
+
+  console.log(matches); // the quotes to send back
+};
+
 const readQuotes = () => {
   const stream = fs.createReadStream(
     path.join(__dirname, '../', 'quotes.json'),
@@ -21,4 +35,4 @@ const readQuotes = () => {
   });
 };
 
-module.exports = { readQuotes };
+module.exports = { queryQuotes };
