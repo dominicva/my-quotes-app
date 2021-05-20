@@ -10,9 +10,15 @@ const PORT = 3000;
 const queryQuotes = async (request, response) => {
   const { url } = request;
   const query = url.slice(8); // remove '/search/'
+  const regex = new RegExp(query, 'i');
 
   const quotes = await readQuotes();
-  console.log('quotes', quotes);
+
+  const matches = quotes.filter((quote) =>
+    regex.test(Object.values(quote).join(','))
+  );
+
+  console.log(matches); // the quotes to send back
 };
 
 const router = function (request, response) {
