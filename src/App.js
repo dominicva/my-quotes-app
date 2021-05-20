@@ -1,6 +1,6 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Form from './components/Form/index';
 import Search from './components/Search/index';
 import QuotesList from './components/QuotesList/index';
@@ -8,8 +8,12 @@ import QuotesList from './components/QuotesList/index';
 const App = () => {
   return (
     <div className="app">
-      <h1>Quotes App</h1>
       <Router>
+        <Link to="/">
+          <header>
+            <h1 className="main-heading">Quotes App</h1>
+          </header>
+        </Link>
         <Switch>
           <Route path="/quotes">
             <QuotesList />

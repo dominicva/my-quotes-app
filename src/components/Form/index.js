@@ -1,6 +1,6 @@
 import useInput from '../../hooks/useInput';
 
-const CATEGORIES = ['philosophy', 'science', 'contemplation'];
+const CATEGORIES = ['philosophy', 'science', 'contemplation', 'humor'];
 
 const Form = function () {
   const { value: quote, bind: bindQuote, reset: resetQuote } = useInput('');

@@ -58,6 +58,11 @@ button {
   margin: auto;
 }
 
+.main-heading {
+  color: white;
+  text-decoration: none;
+}
+
 .create-quote {
   max-width: 480px;
   padding: 1rem;
@@ -88,18 +93,18 @@ button {
   border-radius: 2rem;
 }
 
-.search-quotes__container {
+.search__container {
   max-width: 480px;
 }
 
-.search-quotes__btn {
+.search__btn {
   background-color: transparent;
   border: 1px solid white;
   color: white;
   margin-top: 1rem;
 }
 
-.search-quotes__btn:hover {
+.search__btn:hover {
   background-color: white;
   color: var(--off-black);
   border-radius: 2rem;
