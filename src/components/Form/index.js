@@ -17,17 +17,15 @@ const Form = function () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(
-      `Submitting ${quote} attributed to ${author} with the category ${category}`
-    );
+    fetch(`http://localhost:3000/create-quote`, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ quote, author, category }),
+      // headers: { 'Content-Type': 'application/json' },
+    });
     resetQuote();
     resetAuthor();
     resetCategory();
-    // fetch(`http://localhost:3000/create-quote`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({ quote }),
-    //   headers: { 'Content-Type': 'application/json' },
-    // });
   };
 
   return (

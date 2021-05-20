@@ -4,52 +4,27 @@ const http = require('http');
 const PORT = 3000;
 
 const router = function (request, response) {
-  if (request.method === 'POST' && request.url === '/create-quote') {
-    console.log(request.headers);
-  }
-  // console.log(request.headers);
-  console.log(request.url);
+  const { method, url, headers } = request;
+  let body = [];
+  request
+    .on('error', (err) => console.error(err))
+    .on('data', (chunk) => body.push(chunk))
+    .on('end', () => {
+      body = Buffer.concat(body).toString();
+
+      response.on('error', (err) => console.error(err));
+    });
+
+  response.statusCode = 200;
+  // response.setHeader('Content-Type', 'application/json');
+
+  // const responseBody = { headers, method, url, body };
+
+  // response.write(JSON.stringify(responseBody));
+  response.end();
+  // response.end(JSON.stringify(responseBody)) produces same result
 };
 
-/**
- * http.createServer doing three main things for us,
- * 2 in node, 1 in JS.
- *
- * In Node:
- * 1. Command for node internals to set up the network
- * feature of node specialising in http. With the help of
- * libuv, node sets up open socket/channel to internet in
- * the computer's networking internals. The computer is now ready
- * to receive messages on the specified channel
- * (the port).
- *
- * 2. Stores function passed as argument (doOnIncoming)
- * to createServer to be autorun when we get an incoming message.
- *
- * In JS:
- * 3. Immediately returns an object full of methods,
- * including listen and on, which when run allow us to edit
- * the instance of the http node feature we've set up.
- *
- * When we receive incoming request, node executes that function,
- * which will eventually send a response message back.
- * Node automatically packages up two (names/labels decided by
- * us, 'req' and 'res' are just convention) JS objects for us.
- *
- * 1: import info from inbound message:
- *   {
- *     url {string},
- *     and lots of other things...
- *   }
- * Has data on it that we can grab directly.
- *
- * 2. Has a bunch of method labels/bindings (including end).
- * Whatever we pass to end will be used to add data to the
- * response message. This obj has functions that when run
- * from JS will be labels (back into node) to update the
- * data on the message that gets sent back.
- *
- */
 const server = http.createServer(router);
 
 server.listen(PORT, () => console.log(`Server listening at port ${PORT}`));
