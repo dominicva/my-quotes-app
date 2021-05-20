@@ -1,4 +1,6 @@
 const fs = require('fs');
+const path = require('path');
+
 const http = require('http');
 
 const PORT = 3000;
@@ -11,24 +13,27 @@ const router = function (request, response) {
   }
 };
 
-const createQuote = function (request, response) {
-  processRequestBody(request, response);
+const createQuote = async function (request, response) {
+  const body = await processRequestBody(request);
 
+  // fs.writeFileSync(path.join(__dirname, 'src', 'server', 'quotes.json'));
   response.statusCode = 200;
   response.end();
 };
 
-const processRequestBody = function (request, response) {
-  let body = [];
-  request
-    .on('error', (err) => console.error(err))
-    .on('data', (chunk) => body.push(chunk))
-    .on('end', () => {
-      body = Buffer.concat(body).toString();
-      console.log(body);
-
-      response.on('error', (err) => console.error(err));
-    });
+const processRequestBody = function (request) {
+  return new Promise((resolve, reject) => {
+    let body = [];
+    request
+      .on('error', (err) => {
+        reject(console.error(err));
+      })
+      .on('data', (chunk) => body.push(chunk))
+      .on('end', () => {
+        body = Buffer.concat(body).toString();
+        resolve(body);
+      });
+  });
 };
 
 const server = http.createServer(router);
