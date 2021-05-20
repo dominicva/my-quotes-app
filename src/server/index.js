@@ -16,7 +16,14 @@ const router = function (request, response) {
 const createQuote = async function (request, response) {
   const body = await processRequestBody(request);
 
-  fs.appendFileSync(path.join(__dirname, 'quotes.json'), body);
+  const quotes = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'quotes.json'))
+  );
+  quotes.quotes.push(body);
+
+  const updatedQuotes = JSON.stringify(quotes, null, 2);
+
+  fs.writeFileSync(path.join(__dirname, 'quotes.json'), updatedQuotes);
 
   response.statusCode = 200;
   response.end();
@@ -32,7 +39,7 @@ const processRequestBody = function (request) {
       .on('data', (chunk) => body.push(chunk))
       .on('end', () => {
         body = Buffer.concat(body).toString();
-        resolve(body);
+        resolve(JSON.parse(body));
       });
   });
 };

@@ -1,5 +1,19 @@
 {
-  "quote": "To be or not to be, that is the question.",
-  "author": "Hamlet",
-  "category": "contemplation"
+  "quotes": [
+    {
+      "quote": "To be or not to be, that is the question.",
+      "author": "Hamlet",
+      "category": "contemplation"
+    },
+    {
+      "quote": "hello world",
+      "author": "Earthling",
+      "category": "science"
+    },
+    {
+      "quote": "Invest in yourself",
+      "author": "Scott Moss",
+      "category": "philosophy"
+    }
+  ]
 }
