@@ -1,7 +1,7 @@
 const Quote = (props) => {
   return (
     <figure className="quote">
-      <blockquote>{props.text}</blockquote>
+      <blockquote>{props.quote}</blockquote>
       <figcaption>
         <cite>{props.author}</cite>
       </figcaption>
