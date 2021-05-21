@@ -14,11 +14,15 @@ const App = () => {
             <h1 className="main-heading">Quotes App</h1>
           </header>
         </Link>
+
         <Switch>
           <Route path="/quotes">
             <QuotesList />
           </Route>
           <Route path="/">
+            <Link to="/quotes">
+              <button>View all quotes</button>
+            </Link>
             <Form
               quote="To be or not to be, that is the question."
               author="Hamlet"

@@ -28,6 +28,7 @@ const Form = function () {
 
   return (
     <div className="create-quote">
+      <h2>Add quote</h2>
       <form onSubmit={handleSubmit} className="create-quote__form">
         <label htmlFor="quote__text-area">
           Quote
