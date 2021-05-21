@@ -6,7 +6,9 @@ const Search = () => {
   const handleSearch = (e) => {
     const url = `http://localhost:3000/search/${value}`;
 
-    fetch(url);
+    fetch(url)
+      .then((response) => response.json())
+      .then((parsed) => console.log(parsed));
 
     reset();
   };

@@ -8,11 +8,7 @@ const queryQuotes = async (request, response) => {
 
   const quotes = await readQuotes();
 
-  const matches = quotes.filter((quote) =>
-    regex.test(Object.values(quote).join(','))
-  );
-
-  console.log(matches); // the quotes to send back
+  return quotes.filter((quote) => regex.test(Object.values(quote).join(',')));
 };
 
 const readQuotes = () => {

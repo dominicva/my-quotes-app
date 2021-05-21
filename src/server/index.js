@@ -5,7 +5,7 @@ const { queryQuotes } = require('./routes/query');
 
 const PORT = 3000;
 
-const router = function (request, response) {
+const router = async function (request, response) {
   const { method } = request;
 
   if (method == 'POST') {
@@ -13,7 +13,16 @@ const router = function (request, response) {
   }
 
   if (method == 'GET') {
-    queryQuotes(request, response);
+    const matches = await queryQuotes(request, response);
+
+    response.statusCode = 200;
+    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:1234');
+    response.setHeader('Content-Type', 'application/json');
+
+    const responseBody = JSON.stringify(matches);
+    response.write(responseBody);
+
+    response.end();
   }
 };
 
