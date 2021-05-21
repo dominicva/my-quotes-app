@@ -31,4 +31,4 @@ const readQuotes = () => {
   });
 };
 
-module.exports = { queryQuotes };
+module.exports = { queryQuotes, readQuotes };
