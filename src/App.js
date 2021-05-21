@@ -21,7 +21,7 @@ const App = () => {
           </Route>
           <Route path="/">
             <Link to="/quotes">
-              <button>View all quotes</button>
+              <button className="all-quotes__btn">View all quotes</button>
             </Link>
             <Form
               quote="To be or not to be, that is the question."

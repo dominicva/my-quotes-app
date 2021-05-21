@@ -70,6 +70,11 @@ button {
 .main-heading {
   color: white;
   text-decoration: none;
+  text-decoration-line: underline;
+}
+
+.all-quotes__btn {
+  margin-bottom: 2rem;
 }
 
 .create-quote {
@@ -106,14 +111,16 @@ button {
   max-width: 480px;
 }
 
-.search__btn {
+.search__btn,
+.all-quotes__btn {
   background-color: transparent;
   border: 1px solid white;
   color: white;
   margin-top: 1rem;
 }
 
-.search__btn:hover {
+.search__btn:hover,
+.all-quotes__btn:hover {
   background-color: white;
   color: var(--off-black);
   border-radius: 2rem;
