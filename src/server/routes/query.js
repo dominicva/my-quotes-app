@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const queryQuotes = async (request, response) => {
+const queryQuotes = async (request) => {
   const { url } = request;
   const query = url.slice(8); // remove '/search/'
   const regex = new RegExp(query, 'i');

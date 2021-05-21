@@ -15,6 +15,20 @@ export default function useQuoteList(quote) {
       requestQuoteList();
     }
 
+    // const requestQuotesList = async () => {
+    //   setQuoteList([]);
+    //   setStatus('loading');
+
+    //   const url = `http://localhost:3000/search/${value}`;
+
+    //   const response = await fetch(url).then((response) => response.json());
+
+    //   localCache[quote] = json.quotes;
+
+    //   setQuoteList(response);
+    //   setStatus('loaded');
+    // };
+
     async function requestQuoteList() {
       setQuoteList([]);
       setStatus('loading');

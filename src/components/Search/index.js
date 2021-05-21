@@ -1,19 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useInput from '../../hooks/useInput';
 import Quote from '../Quote';
 
 const Search = () => {
   const { value, bind, reset } = useInput('');
-  const [quotes, setQuotes] = useState([]);
+  const [results, setResults] = useState([]);
 
-  useEffect(() => {}, []);
-
-  const requestQuotes = async (e) => {
+  const requestQuotes = async () => {
     const url = `http://localhost:3000/search/${value}`;
 
     const response = await fetch(url).then((response) => response.json());
 
-    setQuotes(response);
+    setResults(response);
     reset();
   };
 
@@ -26,13 +24,16 @@ const Search = () => {
       <button onClick={requestQuotes} className="search__btn">
         Search
       </button>
-      {quotes.map((quote) => (
-        <Quote
-          quote={quote.quote}
-          author={quote.author}
-          key={`${quote.quote}-${quote.author}`}
-        />
-      ))}
+      <section className="results__container">
+        <h2>Search results</h2>
+        {results.map((result) => (
+          <Quote
+            quote={result.quote}
+            author={result.author}
+            key={`${result.quote}-${result.author}`}
+          />
+        ))}
+      </section>
     </div>
   );
 };

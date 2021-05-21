@@ -110,7 +110,14 @@ button {
   border-radius: 2rem;
 }
 
+.results__container {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border: 1px solid white;
+}
+
 .quote {
+  margin-top: 1.5rem;
   padding: 1rem;
   border: 1px solid white;
 }
