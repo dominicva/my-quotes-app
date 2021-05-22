@@ -1,4 +1,21 @@
-# My React Sandbox
+# My Quotes App
 
-- A place for my general React pracitce.
-- Currently coding along and experimenting with material from Brian Holt's awesome course [Complete Intro to React v6](https://btholt.github.io/complete-intro-to-react-v6/)
+- This repo started out as my React sandbox.
+
+- It's now a simple app that allows the user to store, search and view a collection of their favourite quotes.
+
+## App anatomy
+
+### Front end
+
+- React using
+  - hooks and functional components
+  - React's router dom for moving between views
+
+### Backend
+
+- NodeJS
+  - No frameworks http server
+  - Writing user input to src/server/quotes.json file using node's fs module (working with streams)
+  - Reading from quotes.json and rendering all saved quotes at the '/quotes' route
+  - Querying quotes.json for user search parameters and responding with matching quotes
